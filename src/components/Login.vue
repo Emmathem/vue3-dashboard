@@ -25,7 +25,8 @@
                             }}</button>
                     </div>
                     <p class="py-2 text-center">
-                        Do not have an account? <router-link to="/register"><span class="text-slate-500 font-bold">Register Here</span></router-link>
+                        Do not have an account? <router-link to="/register"><span
+                                class="text-slate-500 font-bold">Register Here</span></router-link>
                     </p>
                 </form>
             </div>
@@ -34,11 +35,14 @@
 </template>
 
 <script>
-import { reactive, defineComponent } from 'vue';
+import { reactive, defineComponent, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
     name: 'Login',
     setup: () => {
+        const router = useRouter();
+
         const state = reactive({
             loginObject: {
                 email: '',
@@ -49,6 +53,13 @@ export default defineComponent({
             hasError: false,
         });
 
+        const isLoggedIn = onMounted(() => {
+            const checkToken = localStorage.getItem('token');
+            if (checkToken) {
+                router.push('/');
+            }
+        })
+        //methods
         const clearError = () => {
             if (state.loginObject.email !== '') {
                 state.hasError = false;
@@ -71,12 +82,16 @@ export default defineComponent({
             }
             if (state.hasError) return;
             state.loading = true;
+            const userName = state.loginObject.email + state.loginObject.password;
+            const loginToken = btoa(userName);
+            localStorage.setItem('token', loginToken);
             setTimeout(() => {
-                state.loading = false
+                state.loading = false;
+                router.push('/');
             }, 4000);
         }
 
-        return { loginAction, clearError, state }
+        return { loginAction, clearError, isLoggedIn, state }
     }
 });
 </script>
