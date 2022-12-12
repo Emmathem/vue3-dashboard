@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Login from './components/Login.vue';
+import Dashboard from './components/Dashboard.vue';
 import Register from './components/Register.vue';
 
 const router = createRouter({
@@ -8,7 +9,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Home',
-            component: Login
+            component: Dashboard
         },
         {
             path: '/login',
