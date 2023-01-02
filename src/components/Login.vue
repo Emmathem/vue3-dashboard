@@ -19,6 +19,7 @@
                         <p v-if="state.hasError" class="text-red-600 text-sm pt-1">{{ state.error.password }}</p>
                     </div>
                     <div class="mt-6">
+                      <Button text="Login" />
                         <button :disabled="state.loading"
                             class="h-12 flex rounded-md bg-slate-800 justify-center text-white font-bold w-full items-center uppercase disabled:bg-slate-500">{{
         state.loading ? 'Processing...' : 'Login'
@@ -37,10 +38,12 @@
 <script>
 import { reactive, defineComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import Button from "../components/Button.vue";
 
 export default defineComponent({
-    name: 'Login',
-    setup: () => {
+  name: 'Login',
+  components: {Button},
+  setup: () => {
         const router = useRouter();
 
         const state = reactive({

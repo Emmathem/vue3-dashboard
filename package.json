@@ -7,8 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "test": "cypress run",
+    "cy:run-ct": "cypress run-ct",
+    "cy:run-e2e": "start-server-and-test vite"
   },
   "dependencies": {
     "jsdoc": "^4.0.0",

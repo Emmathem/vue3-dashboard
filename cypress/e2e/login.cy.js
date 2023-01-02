@@ -17,5 +17,13 @@ describe('Navigate to Login', () => {
         cy.get('h3').should('have.text', 'ESG Dashboard');
         //navigate to register
         // cy.get('a[href="#/register"]').click();
+
+
+        // Request Example
+        // cy.request('GET', 'http://localhost:9090/category')
+        //     .then((res) => {
+        //         expect(res.status).to.eq(201);
+        //         expect(res.body).to.have.property('name', 'New Event');
+        //     })
     });
 })
