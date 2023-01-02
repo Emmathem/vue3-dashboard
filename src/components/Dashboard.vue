@@ -2,7 +2,9 @@
     <div>
         <div class="border border-white rounded-md transition">
             <div class="bg-white h-[50px] flex items-center px-4">
-                <div class="flex-1 text-slate-800 font-bold">ESG Dashboard</div>
+                <div class="flex-1 text-slate-800 font-bold">
+                  <h3>ESG Dashboard</h3>
+                </div>
                 <div class="cursor-pointer font-bold" @click="logoutUser()">Logout</div>
             </div>
             <div class="p-4 bg-gray-50">

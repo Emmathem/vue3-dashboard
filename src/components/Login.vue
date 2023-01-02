@@ -8,14 +8,14 @@
                         <label class="text-gray-800 text-sm">Email Address: </label>
                         <input v-model="state.loginObject.email" type="email"
                             class="bg-transparent border border-gray-400 h-12 w-full rounded-md px-4"
-                            placeholder="Email address" @keyup="clearError()" />
+                            placeholder="Email address" @keyup="clearError()" name="email" />
                         <p v-if="state.hasError" class="text-red-600 text-sm pt-1">{{ state.error.email }}</p>
                     </div>
                     <div class="mb-4">
                         <label class="text-gray-800 text-sm">Password: </label>
                         <input v-model="state.loginObject.password" type="password"
                             class="bg-transparent border border-gray-400 h-12 w-full rounded-md px-4"
-                            placeholder="Password" />
+                            placeholder="Password" name="password" />
                         <p v-if="state.hasError" class="text-red-600 text-sm pt-1">{{ state.error.password }}</p>
                     </div>
                     <div class="mt-6">
